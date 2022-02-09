@@ -1,0 +1,32 @@
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>Logs</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <div class=" movie-grid header">
+      <!-- <span>LOG ID</span> -->
+      <span>USER</span>
+      <span>DATE</span>
+      <!-- <span>REVENUE</span> -->
+      <span></span>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+
+    <cdk-virtual-scroll-viewport #scroller [itemSize]=" 50" class="list">
+      <div *cdkVirtualFor="let register of logs$ | async; templateCacheSize: 0">
+        <div class="movie-grid info">
+          <!-- <span> {{ register.log_id }} </span> -->
+          <span class="title"> {{ register.email }} </span>
+          <span> {{ register.login_date | date:'medium' }} </span>
+          <mat-icon aria-label="See more" (click)="openDialog(register)"> remove_red_eye </mat-icon>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
+    </cdk-virtual-scroll-viewport>
+  </mat-card-content>
+
+</mat-card>

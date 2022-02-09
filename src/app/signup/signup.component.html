@@ -1,0 +1,57 @@
+<mat-card *ngIf="!isSuccessful">
+  <mat-card-title>Sign Up</mat-card-title>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+    <div class="form-fields-wrapper" *ngIf="!(loading$ | async)">
+
+      <mat-form-field color="primary">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="contact@diegoponte.eu" formControlName="email">
+        <mat-error *ngIf="loginForm.get('email').hasError('pattern')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email').errors?.minlength"> Minimum of 3 characters</mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="primary">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [type]="show ? 'text' : 'password'">
+        <button mat-icon-button matSuffix (click)="show = !show" type="button" [attr.aria-label]="'Show password'"
+          [attr.aria-pressed]="show">
+          <mat-icon>{{show ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password').invalid"> A password is needed</mat-error>
+        <mat-error *ngIf="loginForm.get('password').errors?.minlength"> Minimum of 3 characters</mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async" color="accent"></mat-progress-spinner>
+
+    <!-- <mat-error class="text-center font-weight-bold mb-3" *ngIf="errorMessage"> {{errorMessage}}</mat-error> -->
+
+    <mat-error class="error-message" *ngIf="errorMessage"><strong>Register failed: {{errorMessage}}!</strong>
+    </mat-error>
+
+    <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="accent">Sign Up</button>
+
+  </form>
+
+</mat-card>
+
+
+<!-- success -->
+<mat-card *ngIf="isSuccessful">
+  <mat-card-title>Sign Up</mat-card-title>
+  <mat-card-content>
+    <div class="success-wrapper">
+      <div class="success-message">
+        <h4>Wellcome <strong>{{loginForm.controls.email.value}}</strong>.</h4>
+        <h4> Your account was <span class="text-success font-weight-bold">sucessfully</span> created.</h4>
+        <h4> Now proceed to login.</h4>
+      </div>
+      <button mat-raised-button color="accent" routerLink="../login" routerLinkActive="active">Proceed to
+        Login</button>
+    </div>
+  </mat-card-content>
+</mat-card>

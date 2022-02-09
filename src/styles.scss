@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  --color-primary: #0b749b;
+  --color-primary-dark: #012433;
+  --color-text: #536b7a;
+  --color-icon: #9aaebb;
+  --color-pill: #78849e;
+  --color-pill-active-text: #012433;
+  --color-pill-active-background: #00baff;
+  --color-pill-border: #78849e66;
+  --color-dialog-titles: #78849eb9;
+  --color-hover-background: #9aaebb27;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-warning {
+  color: #ffc107;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+mat-icon {
+  color: var(--color-icon);
+  transition: color 0.5s ease;
+  &:hover {
+    color: var(--color-pill-active-text);
+  }
+}
+
+.active-link {
+  color: blueviolet;
+}
+// Scroll bar styling
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-icon) transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-icon);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-pill);
+  border-radius: 20px;
+  border: 3px solid transparent;
+}
