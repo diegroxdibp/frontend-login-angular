@@ -46,6 +46,20 @@ mat-icon {
 .active-link {
   color: blueviolet;
 }
+
+// Injectable class for Movie dialog modal - Must be global
+.dialog-box-movie-details {
+  mat-dialog-container {
+    position: relative;
+    padding: 30px 58px 0px 58px;
+    border-radius: 0;
+
+    @media only screen and (max-width: 600px) {
+      padding: 16px 16px 0 16px;
+    }
+  }
+}
+
 // Scroll bar styling
 /* Works on Firefox */
 * {

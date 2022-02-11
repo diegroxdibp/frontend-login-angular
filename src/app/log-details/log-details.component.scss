@@ -1,0 +1,92 @@
+// :host property doenst work on dialogs, a pannel class is injected through the method that invokes the dialog
+// The pannel class most be of global scope, so it is on styles.scss
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  h1 {
+    margin: 0;
+  }
+
+  .button-wrapper {
+    position: absolute;
+    top: 32px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      font-size: 10px;
+      color: var(--color-icon);
+    }
+
+    &:hover {
+      color: var(--color-text);
+      background: var(--color-hover-background);
+    }
+
+    @media only screen and (max-width: 600px) {
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.ornament {
+  width: 52px;
+  border-bottom: 2px solid var(--color-dialog-ornament);
+}
+
+p {
+  margin: 0;
+}
+
+.dialog-content {
+  margin: 16px 0 30px 0;
+
+  .info {
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 14px;
+      line-height: 1;
+      color: var(--color-dialog-titles);
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-pill);
+    }
+  }
+
+  .row {
+    display: flex;
+    gap: 48px;
+
+    .info {
+      .directors,
+      .actors {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-directors);
+        word-break: break-all;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .mobile-wrapper {
+      display: grid;
+      grid-gap: 0 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+  }
+}

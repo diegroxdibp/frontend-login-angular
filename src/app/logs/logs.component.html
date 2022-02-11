@@ -7,7 +7,7 @@
   <mat-card-content>
 
     <div class=" movie-grid header">
-      <!-- <span>LOG ID</span> -->
+      <span>ID</span>
       <span>USER</span>
       <span>DATE</span>
       <!-- <span>REVENUE</span> -->
@@ -16,12 +16,12 @@
     <mat-divider [inset]="true"></mat-divider>
 
     <cdk-virtual-scroll-viewport #scroller [itemSize]=" 50" class="list">
-      <div *cdkVirtualFor="let register of logs$ | async; templateCacheSize: 0">
+      <div *cdkVirtualFor="let loggedInfo of logs$ | async; templateCacheSize: 0">
         <div class="movie-grid info">
-          <!-- <span> {{ register.log_id }} </span> -->
-          <span class="title"> {{ register.email }} </span>
-          <span> {{ register.login_date | date:'medium' }} </span>
-          <mat-icon aria-label="See more" (click)="openDialog(register)"> remove_red_eye </mat-icon>
+          <span> {{ loggedInfo.log_id }} </span>
+          <span class="title"> {{ loggedInfo.email }} </span>
+          <span> {{ loggedInfo.login_date | date:'medium' }} </span>
+          <mat-icon aria-label="See more" (click)="openDialog(loggedInfo)"> remove_red_eye </mat-icon>
         </div>
         <mat-divider></mat-divider>
       </div>

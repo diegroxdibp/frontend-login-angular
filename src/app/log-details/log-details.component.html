@@ -1,0 +1,41 @@
+<header>
+  <h1>Log details</h1>
+
+  <div (click)="closeDialog()" class="button-wrapper">
+    <mat-icon class="mat-18"> close </mat-icon>
+    <span>CLOSE</span>
+  </div>
+</header>
+<div class="ornament"></div>
+
+<div class="dialog-content">
+
+  <div class="info">
+    <h2>User id:</h2>
+    {{ logDetail.user.user_id }}
+  </div>
+
+  <div class="info">
+    <h2>User email:</h2>
+    {{ logDetail.user.email }}
+  </div>
+
+  <div class="info">
+    <h2>User role:</h2>
+    <p>{{ logDetail.user.role }}</p>
+  </div>
+
+  <div class="info">
+    <h2>Log id:</h2>
+    <p>{{ logDetail.loggedInfo.log_id }}</p>
+  </div>
+
+  <div class="info">
+    <h2>User role:</h2>
+    <p>{{ logDetail.loggedInfo.login_date }}</p>
+  </div>
+  <div class="info">
+    <h2>Log metada:</h2>
+    <p>{{ logDetail.loggedInfo.metadata | json }}</p>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
+import { LoggedInfo } from './models/logged-info'
 
 const AUTH_API = 'http://localhost:3000/api/logs/'
 
@@ -14,8 +15,8 @@ export class LogsService {
   // eslint-disable-next-line no-useless-constructor
   constructor (private http: HttpClient) { }
 
-  getLoginLogs (): Observable<any> {
-    return this.http.get(
+  getLoginLogs (): Observable<LoggedInfo[]> {
+    return this.http.get<LoggedInfo[]>(
       AUTH_API + 'login',
       httpOptions
     )

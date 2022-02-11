@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 
-const AUTH_API = 'http://localhost:3000/api/auth/'
+const AUTH_ENDPOINT = 'http://localhost:3000/api/auth/'
 const LOCAL_STORAGE_KEY = 'user'
 
 const httpOptions = {
@@ -18,7 +18,7 @@ export class AuthenticationService {
 
   register (email: string, password: string): Observable<any> {
     return this.http.post(
-      AUTH_API + 'register',
+      AUTH_ENDPOINT + 'register',
       {
         email,
         password
@@ -29,7 +29,7 @@ export class AuthenticationService {
 
   login (email: string, password: string): Observable<any> {
     return this.http.post(
-      AUTH_API + 'login',
+      AUTH_ENDPOINT + 'login',
       {
         email,
         password
@@ -37,6 +37,14 @@ export class AuthenticationService {
       httpOptions
     )
   }
+
+  getUserByEmail (email: string): Observable<any> {
+    return this.http.get(
+      AUTH_ENDPOINT + 'login'
+    )
+  }
+
+  // Token - Local Storage
 
   logout (): void {
     window.localStorage.removeItem(LOCAL_STORAGE_KEY)
