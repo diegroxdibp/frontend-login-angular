@@ -22,10 +22,12 @@ import { LogsComponent } from './logs/logs.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { SignupComponent } from './signup/signup.component'
 import { LogDetailsComponent } from './log-details/log-details.component';
-import { IframeComponent } from './iframe/iframe.component'
+import { IframeComponent } from './iframe/iframe.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RolesComponent } from './roles/roles.component'
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, LogsComponent, HomeComponent, LoginComponent, NavbarComponent, LogDetailsComponent, IframeComponent],
+  declarations: [AppComponent, SignupComponent, LogsComponent, HomeComponent, LoginComponent, NavbarComponent, LogDetailsComponent, IframeComponent, PageNotFoundComponent, RolesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,9 +1,10 @@
 <h2 class="logo">
-  <a routerLink="home" routerLinkActive="active-link"> Teteuzim.com </a>
+  <a routerLink="home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"> Teteuzim.com </a>
 </h2>
 
 <div class="menu">
 
+  <h2 *ngIf="authService.isAdmin()"><a routerLink="roles" routerLinkActive="active-link">Roles</a></h2>
   <h2 *ngIf="authService.isAdmin()"><a routerLink="logs" routerLinkActive="active-link">Logs</a></h2>
   <h2 *ngIf="!authService.isLoggedIn()"><a routerLink="login">Login</a></h2>
   <h2 *ngIf="authService.isLoggedIn()" (click)="authService.logout()"><a routerLink="login">Logout</a></h2>

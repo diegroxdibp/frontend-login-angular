@@ -6,7 +6,7 @@
 
   <mat-card-content>
 
-    <div class=" movie-grid header">
+    <div class=" user-grid header">
       <span>ID</span>
       <span>USER</span>
       <span>DATE</span>
@@ -17,7 +17,7 @@
 
     <cdk-virtual-scroll-viewport #scroller [itemSize]=" 50" class="list">
       <div *cdkVirtualFor="let loggedInfo of logs$ | async; templateCacheSize: 0">
-        <div class="movie-grid info">
+        <div class="user-grid info">
           <span> {{ loggedInfo.log_id }} </span>
           <span class="title"> {{ loggedInfo.email }} </span>
           <span> {{ loggedInfo.login_date | date:'medium' }} </span>

@@ -1,3 +1,4 @@
+import { AdminGuard } from './admin.guard'
 import { SignupComponent } from './signup/signup.component'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
@@ -6,14 +7,18 @@ import { LoginComponent } from './login/login.component'
 import { LogsComponent } from './logs/logs.component'
 import { AuthenticationGuard } from './authentication.guard'
 import { IframeComponent } from './iframe/iframe.component'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { RolesComponent } from './roles/roles.component'
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthenticationGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logs', component: LogsComponent, canActivate: [AuthenticationGuard] },
-  { path: 'iframe', component: IframeComponent }
+  { path: 'iframe', component: IframeComponent },
+  { path: 'logs', component: LogsComponent, canActivate: [AdminGuard] },
+  { path: 'roles', component: RolesComponent, canActivate: [AdminGuard] },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({

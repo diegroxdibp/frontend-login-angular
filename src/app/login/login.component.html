@@ -7,9 +7,9 @@
       <mat-form-field color="primary">
         <mat-label>Email</mat-label>
         <input matInput placeholder="contact@diegoponte.eu" formControlName="email">
-        <!-- <mat-error *ngIf="loginForm.get('email').hasError('pattern')">
+        <mat-error *ngIf="loginForm.get('email').hasError('pattern')">
           Please enter a valid email address
-        </mat-error> -->
+        </mat-error>
         <mat-error *ngIf="loginForm.get('email').errors?.minlength"> Minimum of 3 characters</mat-error>
       </mat-form-field>
 
