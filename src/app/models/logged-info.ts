@@ -10,5 +10,5 @@ export interface LoggedInfo {
     log_id: number;
     email: string;
     login_date: string;
-    metadata: LoginMetadata;
+    metadata?: LoginMetadata;
 }
