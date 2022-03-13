@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { User } from './models/user'
-const USERS_ENDPOINT = 'http://localhost:3000/api/users/'
+const USERS_ENDPOINT = 'http://vps36197.publiccloud.com.br:3000/api/users/'
 
 @Injectable({
   providedIn: 'root'
