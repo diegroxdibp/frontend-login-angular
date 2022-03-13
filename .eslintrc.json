@@ -14,5 +14,20 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {
+        "semi": [
+            2,
+            "always"
+        ],
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "always",
+                "asyncArrow": "always"
+            }
+        ],
+    }
 }

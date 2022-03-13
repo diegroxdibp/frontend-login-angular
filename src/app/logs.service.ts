@@ -1,24 +1,22 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
-import { LoggedInfo } from './models/logged-info'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { API_ENDPOINT } from './.env';
+import { LoggedInfo } from './models/logged-info';
 
-const AUTH_API = 'http://vps36197.publiccloud.com.br:3000/api/logs/'
+const AUTH_ENDPOINT = `${API_ENDPOINT}api/logs/`;
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-}
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LogsService {
   // eslint-disable-next-line no-useless-constructor
-  constructor (private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getLoginLogs (): Observable<LoggedInfo[]> {
-    return this.http.get<LoggedInfo[]>(
-      AUTH_API + 'login',
-      httpOptions
-    )
+  getLoginLogs(): Observable<LoggedInfo[]> {
+    return this.http.get<LoggedInfo[]>(AUTH_ENDPOINT + 'login', httpOptions);
   }
 }
