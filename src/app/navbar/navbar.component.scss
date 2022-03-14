@@ -2,7 +2,7 @@
   display: flex;
   height: 50px;
   width: 100%;
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-primary);
   align-content: center;
   justify-content: space-between;
   color: #eeeeee;
@@ -31,6 +31,6 @@
   }
 
   a:hover {
-    color: blueviolet;
+    color: var(--color-accent);
   }
 }

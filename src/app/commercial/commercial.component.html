@@ -1,16 +1,17 @@
 <!-- <img src="../../assets/logo-betania.png" alt="" /> -->
 <mat-card>
-  <mat-card-title color="accent">Painel Comercial</mat-card-title>
+  <mat-card-title color="primary">Commercial Panel</mat-card-title>
   <div class="painel-comercial">
     <div class="input-wrapper">
-      <mat-form-field>
-        <mat-label>User</mat-label>
-        <input type="text" #search matInput placeholder="ID of user" />
+      <mat-form-field color="primary">
+        <mat-label>Path</mat-label>
+        <input type="text" #input matInput placeholder="Insert path..." />
       </mat-form-field>
       <button
         mat-raised-button
+        (click)="iframe.setPath(input.value)"
         color="primary"
-        [routerLink]="'/iframe/' + search.value"
+        routerLink="iframe"
       >
         Iframe
       </button>

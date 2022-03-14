@@ -24,10 +24,12 @@ import { SignupComponent } from './signup/signup.component'
 import { LogDetailsComponent } from './log-details/log-details.component';
 import { IframeComponent } from './iframe/iframe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { RolesComponent } from './roles/roles.component'
+import { RolesComponent } from './roles/roles.component';
+import { CommercialComponent } from './commercial/commercial.component';
+import { SafePipe } from './safe.pipe'
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, LogsComponent, HomeComponent, LoginComponent, NavbarComponent, LogDetailsComponent, IframeComponent, PageNotFoundComponent, RolesComponent],
+  declarations: [AppComponent, SignupComponent, LogsComponent, HomeComponent, LoginComponent, NavbarComponent, LogDetailsComponent, IframeComponent, PageNotFoundComponent, RolesComponent, CommercialComponent, SafePipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

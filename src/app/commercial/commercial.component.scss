@@ -12,9 +12,9 @@
     max-width: 90%;
     max-height: 90%;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 20px;
+    color: var(--color-primary);
 
     .painel-comercial {
       display: flex;
@@ -32,10 +32,12 @@
       }
 
       .input-wrapper {
+        display: flex;
         gap: 15px;
-      }
 
-      button {
+        mat-form-field input {
+          color: #222222;
+        }
       }
     }
   }
