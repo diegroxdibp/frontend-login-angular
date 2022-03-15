@@ -1,74 +1,91 @@
-import { Component, OnInit } from '@angular/core'
-import { Roles, User } from '../models/user'
-import { RolesService } from '../roles.service'
-import { UsersService } from '../users.service'
+import { Component, OnInit } from '@angular/core';
+import { Roles, User } from '../models/user';
+import { RolesService } from '../roles.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
-  styleUrls: ['./roles.component.scss']
+  styleUrls: ['./roles.component.scss'],
 })
 export class RolesComponent implements OnInit {
-  user: User;
+  users: User[];
   message: string;
-  constructor (
+  searchTerm: string;
+  constructor(
     private usersService: UsersService,
     private rolesService: RolesService
-  ) { }
+  ) {}
 
-  ngOnInit (): void {
+  ngOnInit(): void {}
+
+  defineSearchTerm(term: string): void {
+    this.searchTerm = term;
   }
 
-  searchUser (searchTerm) {
-    console.log((searchTerm as HTMLInputElement).value)
-    const term: number = parseInt((searchTerm as HTMLInputElement).value)
-    this.usersService.getUserById(term).subscribe({
+  searchUser(searchTerm?: HTMLInputElement | string) {
+    if (typeof searchTerm !== 'string')
+      this.defineSearchTerm((searchTerm as HTMLInputElement).value);
+    console.log(this.searchTerm);
+    this.usersService.getUserByEmail(this.searchTerm).subscribe({
       next: (data) => {
-        console.log(data)
-        this.user = data
-        this.message = null
+        console.log(data);
+        this.users = data;
+        this.message = null;
       },
       error: (err) => {
-        console.log(err)
-        this.user = null
-        this.message = err.error.message
-      }
-    })
+        console.log(err);
+        this.users = null;
+        this.message = err.error.message;
+      },
+    });
   }
 
-  userIsAdmin (): boolean {
-    return this.user.role === Roles.Admin ?? true
+  userIsAdmin(user: User): boolean {
+    return user.role === Roles.Admin ?? true;
   }
 
-  makeAdmin () {
-    this.rolesService.makeAdmin(this.user.user_id).subscribe({
+  makeAdmin(user: User) {
+    this.rolesService.makeAdmin(user.user_id).subscribe({
       next: (data) => {
-        console.log(data)
-        this.message = data
-        this.usersService.getUserById(this.user.user_id).subscribe(data => {
-          this.user = data
-        })
+        console.log(data);
+        this.message = data;
+        const usersListCopy = [...this.users];
+        this.users.forEach((cachedUser: User) => {
+          if (cachedUser.user_id === user.user_id) {
+            usersListCopy[this.users.indexOf(cachedUser)].role = Roles.Admin;
+          }
+          console.log(usersListCopy);
+        });
       },
       error: (err) => {
-        console.log(err)
-        this.message = err
-      }
-    })
+        console.log(err);
+        this.message = err;
+      },
+    });
   }
 
-  makeUser () {
-    this.rolesService.makeUser(this.user.user_id).subscribe({
+  makeUser(user: User) {
+    this.rolesService.makeUser(user.user_id).subscribe({
       next: (data) => {
-        console.log(data)
-        this.message = data
-        this.usersService.getUserById(this.user.user_id).subscribe(data => {
-          this.user = data
-        })
+        console.log(data);
+        this.message = data;
+        const usersListCopy = [...this.users];
+        this.users.forEach((cachedUser: User) => {
+          if (cachedUser.user_id === user.user_id) {
+            usersListCopy[this.users.indexOf(cachedUser)].role = Roles.User;
+          }
+          console.log(usersListCopy);
+        });
       },
       error: (err) => {
-        console.log(err)
-        this.message = err
-      }
-    })
+        console.log(err);
+        this.message = err;
+      },
+    });
+  }
+
+  identify(index, item) {
+    return item.name;
   }
 }

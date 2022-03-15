@@ -1,10 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$md-primary: (
+  50: #e0e9fa,
+  100: #b3c7f3,
+  200: #80a2eb,
+  300: #4d7de3,
+  400: #2661dd,
+  500: #0045d7,
+  600: #003ed3,
+  700: #0036cd,
+  800: #002ec7,
+  900: #001fbe,
+  A100: #e6e9ff,
+  A200: #b3bbff,
+  A400: #808dff,
+  A700: #6776ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$md-accent: (
+  50: #e0f6e4,
+  100: #b3e7bb,
+  200: #80d88e,
+  300: #4dc861,
+  400: #26bc3f,
+  500: #00b01d,
+  600: #00a91a,
+  700: #00a015,
+  800: #009711,
+  900: #00870a,
+  A100: #b3ffb5,
+  A200: #80ff83,
+  A400: #4dff52,
+  A700: #34ff39,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$betania-primary: mat.define-palette($md-primary);
+$betania-accent: mat.define-palette($md-accent);
+
+$betania-warn: mat.define-palette(mat.$red-palette);
+
+$betania-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $betania-primary,
+      accent: $betania-accent,
+      warn: $betania-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($betania-theme);
 
 html,
 body {
   height: 100%;
-  --color-primary: #0b749b;
-  --color-primary-dark: #012433;
+  --color-primary: #0045d7;
+  --color-primary-dark: #003cbe;
+  --color-accent: #00b01d;
   --color-text: #536b7a;
   --color-icon: #9aaebb;
   --color-pill: #78849e;
@@ -17,6 +103,11 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button {
+  // color: white !important;
+  // background-color: var(--color-accent) !important;
 }
 
 .text-success {
@@ -44,7 +135,7 @@ mat-icon {
 }
 
 .active-link {
-  color: blueviolet !important;
+  color: var(--color-accent) !important;
 }
 
 // Injectable class for Movie dialog modal - Must be global

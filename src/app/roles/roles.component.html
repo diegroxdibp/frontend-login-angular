@@ -1,41 +1,64 @@
 <mat-card>
-
   <mat-card-header>
     <mat-card-title>Roles</mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
-
     <div class="input-wrapper">
       <mat-form-field>
         <mat-label>User</mat-label>
-        <input type="number" #search (keyup)="searchUser(search)" matInput placeholder="ID of user">
+        <input
+          type="text"
+          #search
+          (keyup)="searchUser(search)"
+          matInput
+          placeholder="ID of user"
+        />
       </mat-form-field>
     </div>
 
-    <div *ngIf="user" class="user">
-
-      <div class=" user-grid header">
+    <div *ngIf="users" class="user">
+      <div class="user-grid header">
         <span>ID</span>
         <span>USER</span>
         <span>ROLE</span>
       </div>
       <mat-divider [inset]="true"></mat-divider>
 
-      <div class="user-grid info">
-        <span> {{user.user_id}} </span>
-        <span>{{user.email}} </span>
-        <span> {{user.role}} </span>
-      </div>
+      <mat-selection-list #usersList [multiple]="false">
+        <mat-list-option *ngFor="let user of users" [value]="user">
+          <div class="user-grid info">
+            <span> {{ user.user_id }} </span>
+            <span>{{ user.email }} </span>
+            <span> {{ user.role }} </span>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
 
+      <p>
+        Option selected:
+        {{ usersList.selectedOptions.selected[0]?.value.email }}
+      </p>
 
-      <button *ngIf="!userIsAdmin()" (click)="makeAdmin()" mat-raised-button color="primary">Make Admin</button>
+      <button
+        (click)="makeAdmin(usersList.selectedOptions.selected[0]?.value)"
+        mat-raised-button
+        color="primary"
+      >
+        Make Admin
+      </button>
 
-      <button *ngIf="userIsAdmin()" (click)="makeUser()" mat-raised-button color="primary">Make User</button>
+      <button
+        (click)="makeUser(usersList.selectedOptions.selected[0]?.value)"
+        mat-raised-button
+        color="primary"
+      >
+        Make User
+      </button>
     </div>
 
-    <h2 *ngIf="message"><strong>{{message}}</strong></h2>
-
+    <h2 *ngIf="message">
+      <strong>{{ message }}</strong>
+    </h2>
   </mat-card-content>
-
 </mat-card>
