@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/teteu-frontend'),
+      dir: require('path').join(__dirname, './coverage/commercial-panel'),
       subdir: '.',
       reporters: [
         { type: 'html' },

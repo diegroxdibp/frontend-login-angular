@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "teteu-frontend": {
+    "commercial-panel": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@ngx-env/builder:browser",
           "options": {
-            "outputPath": "dist/teteu-frontend",
+            "outputPath": "dist/commercial-panel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "teteu-frontend:build:production"
+              "browserTarget": "commercial-panel:build:production"
             },
             "development": {
-              "browserTarget": "teteu-frontend:build:development"
+              "browserTarget": "commercial-panel:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@ngx-env/builder:extract-i18n",
           "options": {
-            "browserTarget": "teteu-frontend:build"
+            "browserTarget": "commercial-panel:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "teteu-frontend"
+  "defaultProject": "commercial-panel"
 }
