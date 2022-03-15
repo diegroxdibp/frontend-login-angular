@@ -26,7 +26,10 @@
       <mat-divider [inset]="true"></mat-divider>
 
       <mat-selection-list #usersList [multiple]="false">
-        <mat-list-option *ngFor="let user of users" [value]="user">
+        <mat-list-option
+          *ngFor="let user of users; identify: user"
+          [value]="user"
+        >
           <div class="user-grid info">
             <span> {{ user.user_id }} </span>
             <span>{{ user.email }} </span>
@@ -34,13 +37,17 @@
           </div>
         </mat-list-option>
       </mat-selection-list>
-
+      <!-- 
       <p>
         Option selected:
         {{ usersList.selectedOptions.selected[0]?.value.email }}
-      </p>
+      </p> -->
 
       <button
+        *ngIf="
+          usersList.selectedOptions.selected[0]?.value.role !== 'admin' &&
+          usersList.selectedOptions.selected.length > 0
+        "
         (click)="makeAdmin(usersList.selectedOptions.selected[0]?.value)"
         mat-raised-button
         color="primary"
@@ -49,6 +56,10 @@
       </button>
 
       <button
+        *ngIf="
+          usersList.selectedOptions.selected[0]?.value.role !== 'user' &&
+          usersList.selectedOptions.selected.length > 0
+        "
         (click)="makeUser(usersList.selectedOptions.selected[0]?.value)"
         mat-raised-button
         color="primary"
@@ -57,8 +68,8 @@
       </button>
     </div>
 
-    <h2 *ngIf="message">
+    <h3 class="message" *ngIf="message">
       <strong>{{ message }}</strong>
-    </h2>
+    </h3>
   </mat-card-content>
 </mat-card>
