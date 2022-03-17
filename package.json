@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~13.2.6",
     "@angular/platform-browser-dynamic": "~13.2.6",
     "@angular/router": "~13.2.6",
+    "fast-glob": "^3.2.11",
     "glob-parent": "^5.1.2",
     "normalize-url": "^7.0.3",
     "rxjs": "~7.5.5",
