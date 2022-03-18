@@ -104,10 +104,21 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
 
-button {
-  // color: white !important;
-  // background-color: var(--color-accent) !important;
+a:link {
+  color: var(--color-accent);
+}
+
+a:visited {
+  color: var(--color-primary);
+}
+a:hover,
+a:active {
+  color: var(--color-accent);
 }
 
 .text-success {
@@ -127,10 +138,10 @@ button {
 }
 
 mat-icon {
-  color: var(--color-icon);
+  color: white;
   transition: color 0.5s ease;
   &:hover {
-    color: var(--color-pill-active-text);
+    color: var(--color-accent);
   }
 }
 
