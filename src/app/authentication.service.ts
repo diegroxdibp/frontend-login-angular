@@ -14,7 +14,6 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  // eslint-disable-next-line no-useless-constructor
   constructor(private http: HttpClient) {}
 
   register(email: string, password: string): Observable<any> {

@@ -16,26 +16,9 @@
     border-radius: 10px;
     padding: 20px;
 
-    .painel-comercial {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      padding: 25px 0;
-
-      h1 {
-        font-size: 2em;
-        font-weight: bold;
-        color: var(--color-primary);
-      }
-
-      .input-wrapper {
-        gap: 15px;
-      }
-
-      button {
+    mat-card-content {
+      img {
+        max-width: 100%;
       }
     }
   }

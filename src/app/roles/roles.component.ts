@@ -84,8 +84,4 @@ export class RolesComponent implements OnInit {
       },
     });
   }
-
-  identify(index, item) {
-    return item.name;
-  }
 }

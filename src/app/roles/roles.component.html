@@ -26,10 +26,7 @@
       <mat-divider [inset]="true"></mat-divider>
 
       <mat-selection-list #usersList [multiple]="false">
-        <mat-list-option
-          *ngFor="let user of users; identify: user"
-          [value]="user"
-        >
+        <mat-list-option *ngFor="let user of users" [value]="user">
           <div class="user-grid info">
             <span> {{ user.user_id }} </span>
             <span>{{ user.email }} </span>

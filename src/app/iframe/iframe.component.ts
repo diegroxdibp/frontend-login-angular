@@ -1,33 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IframeService } from '../iframe.service';
+import { PanelService } from '../panel.service';
 import { SafePipe } from '../safe.pipe';
-
+import { PanelSourceModel } from '../models/panel-source';
 @Component({
   selector: 'app-iframe',
   templateUrl: './iframe.component.html',
   styleUrls: ['./iframe.component.scss'],
 })
-export class IframeComponent implements OnInit {
+export class IframeComponent {
   url: SafeResourceUrl;
   private safePipe: SafePipe = new SafePipe(this.domSanitizer);
   // Private properties
   constructor(
-    public iframeService: IframeService,
+    public panelService: PanelService,
     private domSanitizer: DomSanitizer
-  ) {}
-
-  ngOnInit(): void {
-    this.handleUrl(this.iframeService.path);
+  ) {
+    this.panelService.getPath().subscribe((data: PanelSourceModel) => {
+      console.log(data.url);
+      this.sanitizeUrl(data.url);
+    });
   }
 
-  handleUrl(url: string): void {
-    var pattern = /^((http|https|ftp):\/\/)/;
-
-    if (!pattern.test(url)) {
-      url = 'http://' + url;
-    }
-
+  sanitizeUrl(url: string): void {
     this.url = this.safePipe.transform(url, 'resourceUrl');
   }
 }

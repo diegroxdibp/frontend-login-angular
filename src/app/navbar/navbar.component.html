@@ -1,6 +1,6 @@
 <h2 class="logo">
   <a
-    routerLink="home"
+    routerLink="panel"
     routerLinkActive="active-link"
     [routerLinkActiveOptions]="{ exact: true }"
   >
@@ -9,6 +9,9 @@
 </h2>
 
 <div class="menu">
+  <h2 *ngIf="authService.isAdmin()">
+    <a routerLink="panels" routerLinkActive="active-link">Panels</a>
+  </h2>
   <h2 *ngIf="authService.isAdmin()">
     <a routerLink="roles" routerLinkActive="active-link">Roles</a>
   </h2>

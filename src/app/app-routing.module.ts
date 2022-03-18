@@ -10,17 +10,19 @@ import { IframeComponent } from './iframe/iframe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RolesComponent } from './roles/roles.component';
 import { CommercialComponent } from './commercial/commercial.component';
+import { PanelsComponent } from './panels/panels.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
-    component: CommercialComponent,
+    component: HomeComponent,
     canActivate: [AuthenticationGuard],
   },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home/iframe', component: IframeComponent },
+  { path: 'panel', component: IframeComponent },
+  { path: 'panels', component: PanelsComponent, canActivate: [AdminGuard] },
   { path: 'logs', component: LogsComponent, canActivate: [AdminGuard] },
   { path: 'roles', component: RolesComponent, canActivate: [AdminGuard] },
   // { path: '**', component: PageNotFoundComponent },

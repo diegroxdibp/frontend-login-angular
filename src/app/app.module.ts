@@ -1,3 +1,4 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { LogsComponent } from './logs/logs.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PanelsComponent } from './panels/panels.component';
 import { RolesComponent } from './roles/roles.component';
 import { SafePipe } from './safe.pipe';
 import { SignupComponent } from './signup/signup.component';
@@ -43,6 +46,7 @@ import { SignupComponent } from './signup/signup.component';
     RolesComponent,
     CommercialComponent,
     SafePipe,
+    PanelsComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,8 @@ import { SignupComponent } from './signup/signup.component';
     MatIconModule,
     MatDividerModule,
     MatListModule,
+    MatExpansionModule,
+    ClipboardModule,
   ],
   providers: [AuthenticationInterceptorProviders],
   bootstrap: [AppComponent],

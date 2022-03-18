@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Panels</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> <strong>Panels Source</strong> </mat-panel-title>
+          <mat-panel-description> Set the panels source </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="input-wrapper">
+          <mat-form-field>
+            <mat-label>Set panel url:</mat-label>
+            <input #input type="text" #search matInput placeholder="url" />
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            (click)="handleUrl(input.value)"
+            color="primary"
+            routerLink="../panel"
+          >
+            Set path
+          </button>
+        </div>
+        <h3 class="message" *ngIf="response">
+          <strong>{{ response }}</strong>
+        </h3>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> <strong>Panels History</strong> </mat-panel-title>
+          <mat-panel-description> See panels history </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="wrapper">
+          <div class="entry-grid header">
+            <span>ID</span>
+            <span>URL</span>
+            <span>DATE</span>
+          </div>
+          <mat-divider></mat-divider>
+          <div *ngFor="let entry of history$ | async" classs="entries">
+            <div class="entry-grid entry">
+              <span> {{ entry.panel_id }} </span>
+              <div class="url">
+                <span #url class="path">
+                  {{ entry.url }}
+                </span>
+                <button
+                  mat-flat-button
+                  (click)="copyToClipboard(url)"
+                  color="primary"
+                >
+                  <mat-icon>file_copy</mat-icon>
+                </button>
+              </div>
+              <span class="date"> {{ entry.created_at | date: "short" }} </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

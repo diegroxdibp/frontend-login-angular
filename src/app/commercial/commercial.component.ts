@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IframeService } from '../iframe.service';
+import { PanelService } from '../panel.service';
 
 @Component({
   selector: 'app-commercial',
@@ -7,7 +7,7 @@ import { IframeService } from '../iframe.service';
   styleUrls: ['./commercial.component.scss'],
 })
 export class CommercialComponent implements OnInit {
-  constructor(public iframe: IframeService) {}
+  constructor(public panelService: PanelService) {}
 
   ngOnInit(): void {}
 }
