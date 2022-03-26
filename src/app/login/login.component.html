@@ -1,36 +1,62 @@
 <mat-card>
   <mat-card-title color="accent">Login</mat-card-title>
-  <form [formGroup]="loginForm" (ngSubmit)="submit()" *ngIf="!(loading$ | async)">
-
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="submit()"
+    *ngIf="!(loading$ | async)"
+  >
     <div class="form-fields-wrapper">
-
       <mat-form-field color="primary">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="contact@diegoponte.eu" formControlName="email">
+        <input
+          matInput
+          placeholder="contact@diegoponte.eu"
+          formControlName="email"
+        />
         <mat-error *ngIf="loginForm.get('email').hasError('pattern')">
           Please enter a valid email address
         </mat-error>
-        <mat-error *ngIf="loginForm.get('email').errors?.minlength"> Minimum of 3 characters</mat-error>
+        <mat-error *ngIf="loginForm.get('email').errors?.minlength">
+          Minimum of 3 characters</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field color="primary">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" [type]="show ? 'text' : 'password'">
+        <input
+          matInput
+          formControlName="password"
+          [type]="show ? 'text' : 'password'"
+        />
         <button mat-icon-button matSuffix type="button" (click)="show = !show">
-          <mat-icon>{{show ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-icon>{{ show ? "visibility" : "visibility_off" }}</mat-icon>
         </button>
-        <mat-error *ngIf="loginForm.get('password').invalid"> A password is needed</mat-error>
-        <mat-error *ngIf="loginForm.get('password').errors?.minlength"> Minimum of 6 characters</mat-error>
+        <mat-error *ngIf="loginForm.get('password').invalid">
+          A password is needed</mat-error
+        >
+        <mat-error *ngIf="loginForm.get('password').errors?.minlength">
+          Minimum of 6 characters</mat-error
+        >
       </mat-form-field>
     </div>
 
-    <mat-error class="error-message" *ngIf="loginFailed"><strong>Login failed: {{errorMessage}}!</strong>
+    <mat-error class="error-message" *ngIf="loginFailed"
+      ><strong>Login failed: {{ errorMessage.message }}!</strong>
     </mat-error>
 
-    <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="accent">Login</button>
-
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="!loginForm.valid"
+      color="accent"
+    >
+      Login
+    </button>
   </form>
 
-  <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async" color="accent"></mat-progress-spinner>
-
+  <mat-progress-spinner
+    [mode]="'indeterminate'"
+    *ngIf="loading$ | async"
+    color="accent"
+  ></mat-progress-spinner>
 </mat-card>
