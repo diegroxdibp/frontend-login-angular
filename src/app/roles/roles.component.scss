@@ -13,6 +13,10 @@
     height: 80%;
     background: rgba(255, 255, 255, 0.9);
 
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+
     mat-card-header {
       display: flex;
     }
@@ -80,9 +84,6 @@
 
       .message {
         margin: auto;
-      }
-      @media only screen and (max-width: 600px) {
-        width: 100%;
       }
     }
   }
