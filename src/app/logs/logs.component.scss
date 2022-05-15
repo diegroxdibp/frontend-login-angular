@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 66px);
   width: 100%;
   background-color: #222222;
 }
@@ -51,22 +51,31 @@ mat-card {
       align-items: center;
       justify-content: center;
 
-      span,
       mat-icon {
         display: flex;
         width: fit-content;
         margin: auto;
       }
 
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
       mat-icon {
         font-size: 1rem;
         height: 1rem;
+        color: #222222;
       }
     }
   }
 
   @media only screen and (max-width: 600px) {
     width: 100%;
+    border-radius: 0;
+
+    height: calc(100vh - 66px);
 
     .header {
       margin-top: 16px;

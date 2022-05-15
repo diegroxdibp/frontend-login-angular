@@ -7,9 +7,14 @@ import { AuthenticationService } from '../authentication.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  navbarOpened = false;
   isLoggedIn: boolean;
   constructor (public authService: AuthenticationService) { }
 
   ngOnInit (): void {
+  }
+
+  toggleNavbar(): void {
+    this.navbarOpened = !this.navbarOpened;
   }
 }

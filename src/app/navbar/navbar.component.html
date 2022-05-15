@@ -7,8 +7,10 @@
     Commercial Panel
   </a>
 </h2>
-
-<div class="menu">
+<button mat-icon-button class="navbar-toggle" (click)="toggleNavbar()">
+  <mat-icon>{{ !navbarOpened ? "menu" : "close" }}</mat-icon>
+</button>
+<div (click)="toggleNavbar()" class="menu" [class.active]="navbarOpened">
   <h2 *ngIf="authService.isAdmin()">
     <a routerLink="panels" routerLinkActive="active-link">Panels</a>
   </h2>
@@ -22,5 +24,5 @@
   <h2 *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
     <a routerLink="login">Logout</a>
   </h2>
-  <h2 *ngIf="!authService.isLoggedIn()"><a routerLink="signup">Sign Up</a></h2>
+  <h2 *ngIf="authService.isAdmin()"><a routerLink="signup">Sign Up</a></h2>
 </div>

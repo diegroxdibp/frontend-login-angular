@@ -7,9 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LogsComponent } from './logs/logs.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { IframeComponent } from './iframe/iframe.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RolesComponent } from './roles/roles.component';
-import { CommercialComponent } from './commercial/commercial.component';
 import { PanelsComponent } from './panels/panels.component';
 
 const routes: Routes = [
@@ -21,7 +19,7 @@ const routes: Routes = [
   },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'panel', component: IframeComponent },
+  { path: 'panel', component: IframeComponent,  canActivate: [AuthenticationGuard] },
   { path: 'panels', component: PanelsComponent, canActivate: [AdminGuard] },
   { path: 'logs', component: LogsComponent, canActivate: [AdminGuard] },
   { path: 'roles', component: RolesComponent, canActivate: [AdminGuard] },

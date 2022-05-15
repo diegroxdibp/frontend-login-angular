@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   display: flex;
   height: 50px;
   width: 100%;
@@ -6,6 +7,7 @@
   align-content: center;
   justify-content: space-between;
   color: #eeeeee;
+  border-bottom: 2px solid green;
 
   .logo {
     margin: auto 15px;
@@ -35,5 +37,64 @@
 
   a:hover {
     color: var(--color-accent);
+  }
+
+  .navbar-toggle {
+    display: none !important;
+    position: absolute !important;
+    top: 13px;
+    right: 13px;
+
+    .mat-icon {
+      color: white;
+      font-size: 36px;
+      line-height: 36px;
+      height: auto;
+      width: auto;
+
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    height: 66px;
+
+    .navbar-toggle {
+      display: block !important;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .active {
+      gap: 10px;
+      display: flex;
+      border-bottom: 2px solid green;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 68px;
+      margin: 0;
+      background: var(--color-primary);
+      z-index: 5;
+
+      h2 {
+        padding: 5px 10px;
+        a {
+          display: block;
+          text-align: center;
+        }
+
+        &:first-child {
+          margin-top: 5px;
+        }
+        &:last-child {
+          margin-bottom: 5px;
+        }
+      }
+    }
   }
 }
