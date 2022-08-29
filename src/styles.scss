@@ -145,10 +145,11 @@ a:active {
 }
 
 mat-icon {
-  color: white;
-  transition: color 0.5s ease;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
   &:hover {
-    color: var(--color-accent);
+    color: var(--color-accent)!important;
   }
 }
 

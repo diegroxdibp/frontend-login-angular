@@ -28,7 +28,7 @@ import { LogsComponent } from './logs/logs.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PanelsComponent } from './panels/panels.component';
-import { RolesComponent } from './roles/roles.component';
+import { UsersComponent } from './users/users.component';
 import { SafePipe } from './safe.pipe';
 import { SignupComponent } from './signup/signup.component';
 
@@ -43,7 +43,7 @@ import { SignupComponent } from './signup/signup.component';
     LogDetailsComponent,
     IframeComponent,
     PageNotFoundComponent,
-    RolesComponent,
+    UsersComponent,
     CommercialComponent,
     SafePipe,
     PanelsComponent,

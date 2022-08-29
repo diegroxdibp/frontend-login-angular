@@ -20,7 +20,7 @@
         <div class="user-grid info">
           <span> {{ loggedInfo.log_id }} </span>
           <span class="title"> {{ loggedInfo.email }} </span>
-          <span> {{ loggedInfo.login_date | date:'medium' }} </span>
+          <span> {{ loggedInfo.login_date | date:'d/M/yyyy HH:mm' }} </span>
           <mat-icon aria-label="See more" (click)="openDialog(loggedInfo)"> remove_red_eye </mat-icon>
         </div>
         <mat-divider></mat-divider>

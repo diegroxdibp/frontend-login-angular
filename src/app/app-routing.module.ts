@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LogsComponent } from './logs/logs.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { IframeComponent } from './iframe/iframe.component';
-import { RolesComponent } from './roles/roles.component';
+import { UsersComponent } from './users/users.component';
 import { PanelsComponent } from './panels/panels.component';
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'panel', component: IframeComponent,  canActivate: [AuthenticationGuard] },
   { path: 'panels', component: PanelsComponent, canActivate: [AdminGuard] },
   { path: 'logs', component: LogsComponent, canActivate: [AdminGuard] },
-  { path: 'roles', component: RolesComponent, canActivate: [AdminGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AdminGuard] },
   // { path: '**', component: PageNotFoundComponent },
 ];
 
